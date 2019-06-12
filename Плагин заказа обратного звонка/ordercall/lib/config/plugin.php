@@ -1,5 +1,4 @@
 <?php
-
 return array(
     'name' => 'Заказ обратного звонка',
     'img'  => 'img/phone.png',
