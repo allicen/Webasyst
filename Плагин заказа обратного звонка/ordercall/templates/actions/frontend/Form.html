@@ -1,0 +1,63 @@
+<div class="ordercallform">
+    <div class="backgroundhide">
+        <div class="form">
+            <form name="ordercall" class="ordercallsent" method="post">
+                <div class="close"></div>
+                <div class="header">Заказать обратный звонок</div>
+                <div class="headerinfo">Оставьте свои контакты и мы перезвоним Вам</div>
+                <div class="hideform">
+                    <div class="headerblock">Контактная информация</div>
+                    <div class="namefield">
+                        <div class="field">
+                            Имя
+                            <span class="red"></span>
+                        </div>
+                        <input name="name" type="text">
+                        <div class="message">
+                        </div>
+                    </div>
+                    <div class="namefield">
+                        <div class="field">
+                            Телефон
+                            <span class="red"></span>
+                        </div>
+                        <input name="phone" type="text" class="phonemask">
+                        <div class="message">
+                        </div>
+                    </div>
+                    <div class="headerblock timeline">
+                        <div class="title">
+                            Время для звонка
+                        </div>
+                        <div class="line"></div>
+                        <div class="polzunok"></div>
+                        <div class="result" id="resulttime"></div>
+                        <input type="hidden" value="" name="timefrom"><input type="hidden" value="" name="timeto">
+                    </div>
+                    <div class="headerblock">
+                        <div class="title">
+                            Комментарий
+                        </div>
+                        <textarea name="comment"></textarea>
+                    </div>
+                    {if $captcha == true}
+                    <div class="captcha">{$wa->captcha()}</div>
+                    <div class="errorbot">Неверно введена Captcha</div>
+                    {/if}
+                    {if $agree == true}
+                    <div class="agreeblock">
+                        <label class="containercheck">
+                            Согласен на обработку <a href="{$link|escape}" target="_blank">персональных данных</a>
+                            <input class="agreeform" name="checked" type="checkbox"/>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    {/if}
+                    <input type="submit" value="Заказать" class="buttonOrdercal" name="button" disabled>
+                </div>
+            </form>
+        </div>
+        <div class="box_shadow">
+        </div>
+    </div>
+</div>

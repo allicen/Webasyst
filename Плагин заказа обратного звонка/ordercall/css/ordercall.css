@@ -1,0 +1,477 @@
+font-face {
+    font-family: Roboto, serif;
+    src: url(fonts/roboto.ttf);
+}
+
+.ordercallform .font_family_google_fira, .font_family_google_fira * {
+    font-family: Roboto, serif !important;
+}
+
+.ordercallform .link {
+    margin-top: 200px;
+}
+
+.ordercallform .backgroundhide {
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+.ordercallform .box_shadow {
+    background: #000;
+    opacity: 0.4;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.ordercallform .form {
+    width: 472px;
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    background: #fff;
+    padding: 25px;
+    margin-left: -262px;
+    margin-top: 70px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    font-family: Roboto, serif !important;
+    color: #333333;
+    font-size: 14px;
+    text-align: left;
+    overflow: visible;
+    margin-bottom: 30px;
+}
+
+.ordercallform .form .header {
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-size: 18px;
+    color: #333333;
+}
+
+.ordercallform .headerinfo {
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 14px;
+    color: #828282;
+    margin-top: 25px;
+
+}
+
+.ordercallform .namefield .field {
+    margin-top: 12px;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.ordercallform .title {
+    margin-bottom: 15px;
+}
+
+.ordercallform input, .ordercallform textarea {
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 6px 10px;
+    box-shadow: none;
+}
+
+.ordercallform input[type=text] {
+    width: 470px;
+    height: 30px;
+}
+
+.ordercallform input[type=text]:focus, .ordercallform textarea:focus {
+    outline: none;
+    border: 1px solid #27AE60;
+}
+
+.ordercallform textarea {
+    width: 470px;
+    height: 120px;
+    margin-bottom: 20px;
+    resize: none;
+}
+
+.ordercallform .red::after {
+    content: "*";
+    color: #f00;
+    font-size: 16px;
+}
+
+.ordercallform .white:after {
+    color: #fff !important;
+}
+
+.ordercallform input[type=checkbox] {
+    background: #FFFFFF;
+    border: 2px solid #27AE60;
+    box-sizing: border-box;
+    border-radius: 2px;
+    width: 20px;
+    height: 20px;
+}
+
+.ordercallform .containercheck {
+    padding-bottom: 0 !important;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-bottom: 28px;
+    padding-top: 3px;
+}
+
+.ordercallform .containercheck input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.ordercallform .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #FFFFFF;
+    border: 2px solid #828282;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+
+.ordercallform .containercheck:hover input ~ .checkmark {
+    background: #FFFFFF;
+    border: 2px solid #828282;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+
+.ordercallform .containercheck input:checked ~ .checkmark {
+    border: 2px solid #27AE60;
+}
+
+.ordercallform .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.ordercallform .containercheck input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.ordercallform .containercheck .checkmark:after {
+    left: 5px;
+    top: 1px;
+    width: 3px;
+    height: 7px;
+    border: solid #27AE60;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.ordercallform .containercheck a {
+    border-bottom: none;
+    text-decoration: none;
+    color: #27AE60 !important;
+}
+
+.ordercallform a:hover {
+    border-bottom: 1px solid #27AE60;
+    color: #27AE60 !important;
+    text-decoration: none;
+}
+
+.ordercallform input[type=submit].buttonOrdercal {
+    padding: 0 !important;
+    margin: 0 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    background: #27AE60;
+    border-radius: 5px;
+    width: 470px;
+    height: 50px;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Неактивная кнопка */
+.ordercallform input[type=submit]:disabled {
+    background: #F2F2F2 !important;
+    color: #E0E0E0;
+    cursor: default;
+
+}
+
+/* Неверно введена капча */
+.ordercallform .errorbot {
+    background: rgba(250, 55, 55, 0.1);
+    border-radius: 4px;
+    color: #FA3737;
+    padding: 8px 10px 8px 16px;
+    margin: 20px 0;
+}
+
+.ordercallform input[type=text].error {
+    border: 1px solid #FA3737 !important;
+}
+
+.ordercallform .message {
+    display: none;
+    background: #FA3737;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 10px;
+    float: right;
+    padding: 4px 11px;
+    margin-top: 4px;
+    line-height: 12px;
+}
+
+.ordercallform .message:before {
+    content: '';
+    position: absolute;
+    border: 3px solid transparent;
+    border-bottom: 5px #FA3737;
+    margin-top: -10px;
+    margin-left: 103px;
+}
+
+.ordercallform .headerblock {
+    margin-top: 25px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.ordercallform .namefield {
+    margin-top: -1px;
+}
+
+.ordercallform .close {
+    background-image: url(../img/close.svg);
+    width: 14px;
+    height: 14px;
+    position: relative;
+    float: right;
+    cursor: pointer;
+}
+
+.ordercallform .result div {
+    display: inline;
+    font-size: 12px;
+    text-align: center;
+    color: #828282;
+    margin-right: 37px;
+    font-weight: 400;
+}
+
+.ordercallform .ui-slider-horizontal {
+    height: 2px !important;
+    cursor: pointer !important;
+    margin-left: 5px;
+}
+
+.ordercallform .ui-widget.ui-widget-content {
+    border: none !important;
+}
+
+.ordercallform .ui-widget-content {
+    border: none !important;
+    background: #F2F2F2 !important;
+}
+
+.ordercallform .ui-widget-header {
+    background: #27AE60 !important;
+}
+
+.ordercallform .ui-slider .ui-slider-handle {
+    width: 11px !important;
+    height: 20px !important;
+    border: 2px solid #27AE60 !important;
+    border-radius: 3px !important;
+    background: #fff url(../img/point.png) no-repeat center center;
+}
+
+.ordercallform .ui-state-default,
+.ordercallform .ui-widget-content .ui-state-default,
+.ordercallform .ui-widget-header .ui-state-default,
+.ordercallform .ui-button,
+.ordercallform html .ui-button.ui-state-disabled:hover,
+.ordercallform html .ui-button.ui-state-disabled:active {
+    border: 2px solid #27AE60 !important;
+    font-weight: normal !important;
+    cursor: pointer !important;
+}
+
+.ordercallform .ui-slider-horizontal .ui-slider-handle {
+    top: -10px !important;
+    margin-left: -5px !important;
+}
+
+.ordercallform .ui-slider-horizontal .ui-slider-handle:nth-last-child(1) {
+    margin-left: -5px !important;
+}
+
+.ordercallform .polzunok {
+    margin-top: 30px;
+    margin-bottom: 18px;
+    width: 96%;
+}
+
+.ordercallform .line {
+    height: 2px;
+    background: #F2F2F2;
+    width: 89.5%;
+    position: absolute;
+    margin-top: 15px;
+
+}
+
+.ordercallform .captcha {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.ordercallform p {
+    margin-left: 20%;
+    margin-top: 5px;
+}
+
+.ordercallform .wa-captcha p img {
+    margin-top: 0 !important;
+}
+
+.ordercallform input[name=captcha] {
+    width: 150px;
+    margin-top: 5px;
+}
+
+.ordercallform p:last-child {
+    margin-top: 5px;
+}
+
+.ordercallform .wa-captcha {
+    padding: 0;
+}
+
+.ordercallform .captcha .g-recaptcha {
+    margin: 0 auto;
+    left: 50%;
+    margin-left: -155px;
+    position: relative;
+    width: 472px;
+    height: 80px;
+}
+
+@media (max-width: 600px) {
+    .ordercallform .backgroundhide {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 100;
+        padding: 50px;
+        overflow: auto;
+    }
+
+    .ordercallform .box_shadow {
+        background: #fff;
+        opacity: 1;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .ordercallform .form {
+        width: auto;
+        z-index: 2;
+        position: fixed;
+        left: auto;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: none;
+        display: inline-block;
+        overflow: visible;
+        top: 50px;
+        margin: 0 auto 30px;
+    }
+
+    .ordercallform input[type=text] {
+        width: 100%;
+    }
+
+    .ordercallform textarea {
+        width: 100%;
+    }
+
+    .ordercallform input[type=submit].buttonOrdercal {
+        width: 100%;
+    }
+
+    .ordercallform .result div {
+        margin-right: 18.7px;
+    }
+
+    .ordercallform .result div:last-child {
+        margin-right: 0;
+    }
+
+    .ordercallform .timeline {
+        width: 300px;
+    }
+
+    .ordercallform .line {
+        width: 300px;
+
+    }
+
+    .ordercallform .captcha p {
+        margin-left: 0;
+    }
+
+    .ordercallform .wa-captcha p img {
+        margin-top: 0 !important;
+    }
+
+    .ordercallform input[name=captcha] {
+        width: 150px;
+        margin-top: 5px;
+    }
+
+    .ordercallform .captcha .g-recaptcha {
+        margin: 0 auto;
+        left: 50%;
+        margin-left: -155px;
+        position: relative;
+        width: 100%;
+        height: 80px;
+    }
+}
