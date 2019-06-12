@@ -2,7 +2,7 @@
 class shopOrdercallPlugin extends shopPlugin
 {
 	const plugin_id = "ordercall";
-    public function frontendHead()
+	public function frontendHead()
     {
 		$active = wa("shop")->getPlugin(self::plugin_id)->getSettings("active");
 		if($active){
