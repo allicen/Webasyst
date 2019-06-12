@@ -1,12 +1,10 @@
 $(document).ready(function (e) {
-
     var widthM = window.screen.width;
     if (widthM < 600) {
         $("head").append("<meta name=\"viewport\" content=\"width=500, user-scalable=yes\">");
     } else if (widthM < 800) {
         $("head").append("<meta name=\"viewport\" content=\"width=600, user-scalable=yes\">");
     }
-
     $(".ordercallform .backgroundhide").hide();
     $(".ordercallform .errorbot").hide();
 
@@ -98,7 +96,6 @@ $(document).ready(function (e) {
         } else {
             $(".ordercallsent").submit(function () {
                 var str = $(this).serialize();
-
                 /* Отправка сообщения на ajax */
                 $.ajax({
                     type: "POST",
@@ -119,7 +116,6 @@ $(document).ready(function (e) {
                 return false;
             });
         }
-
     });
 
     /* Ползунок со временем */
@@ -150,7 +146,7 @@ $(document).ready(function (e) {
 
     /* Скрыть капчу (невидимую)*/
     if ($("div").is(".ordercallform .wa-captcha .g-recaptcha")) {
-        if ($(".ordercallform .wa-captcha .g-recaptcha").attr("data-size") == "invisible") {
+        if ($(".ordercallform .wa-captcha .g-recaptcha").attr("data-size") === "invisible") {
             $(".ordercallform .wa-captcha .g-recaptcha").css({"height": "0px"});
         }
     }
