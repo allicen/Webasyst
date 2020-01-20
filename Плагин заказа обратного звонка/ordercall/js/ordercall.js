@@ -1,5 +1,6 @@
 $(document).ready(function (e) {
-    var widthM = window.screen.width;
+    let widthM = window.screen.width;
+    let div = $("div");
     if (widthM < 600) {
         $("head").append("<meta name=\"viewport\" content=\"width=500, user-scalable=yes\">");
     } else if (widthM < 800) {
@@ -11,12 +12,15 @@ $(document).ready(function (e) {
     /* Скрыть/показать форму*/
     $(".ordercallink").click(function () {
         $(".ordercallform .backgroundhide").fadeIn(50);
+        $("html").css("overflow", "hidden");
     });
     $(".ordercallform .box_shadow").click(function () {
         $(".ordercallform .backgroundhide").fadeOut(50);
+        $("html").css("overflow", "auto");
     });
     $(".ordercallform .close").click(function () {
         $(".ordercallform .backgroundhide").fadeOut(50);
+        $("html").css("overflow", "auto");
     });
 
     /* Проверить обязательные поля */
@@ -25,17 +29,17 @@ $(document).ready(function (e) {
     });
 
     /* Проверить согласие с политикой */
-    if ($("div").is(".ordercallform .agreeblock")) {
+    if (div.is(".ordercallform .agreeblock")) {
         $(".ordercallform .agreeform").on("change", function () {
             if ($(".ordercallform .agreeform").prop("checked")) {
-                $(".ordercallform input[type=submit]").attr("disabled", false);
+                submit.attr("disabled", false);
 
             } else {
-                $(".ordercallform input[type=submit]").attr("disabled", true);
+                submit.attr("disabled", true);
             }
         });
     } else {
-        $(".ordercallform input[type=submit]").attr("disabled", false);
+        submit.attr("disabled", false);
     }
 
     /* Маска для телефона, проверка номера (работает, надо раскомментировать)*/
@@ -46,23 +50,18 @@ $(document).ready(function (e) {
     //})
 
     /* Проверка номера без маски */
-    var re = /^\d[\d\(\)\ -]{4,14}\d$/;
+    let re = /^\d[\d() -]{4,14}\d$/;
 
     function validPhone() {
-        var re = new RegExp(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/);
-        var phone = $(".ordercallform .namefield input[name=phone]").val();
-        var valid = re.test(phone);
-        if (valid) {
-            return true;
-        } else {
-            return false;
-        }
+        let re = new RegExp(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/);
+        let phone = $(".ordercallform .namefield input[name=phone]").val();
+        return re.test(phone);
     }
 
     /* Скрыть/показать сообщения, что поле не заполнено */
     function checkInput() {
         $(".ordercallform input[type=text].important").each(function () {
-            if ($(this).val() != "") {
+            if ($(this).val() !== "") {
                 $(this).removeClass("empty");
                 $(this).next().hide();
             } else {
@@ -72,16 +71,17 @@ $(document).ready(function (e) {
     }
 
     /* Обработка клика на кнопку отправки формы */
-    $(".ordercallform input[type=submit]").click(function () {
-        if ($(".ordercallform input[type=submit]").attr("disabled", true)) {
-            $(".ordercallform input[type=submit]").removeAttr("disabled");
+    let submit = $(".ordercallform input[type=submit]");
+    submit.click(function () {
+        if (submit.attr("disabled", true)) {
+            submit.removeAttr("disabled");
         }
         checkInput();
         validPhone();
-        var empty = $(".ordercallform .empty").length;
+        let empty = $(".ordercallform .empty");
 
-        if (empty > 0 || validPhone() == false) {
-            $(".ordercallform .empty").each(function () {
+        if (empty.length > 0 || validPhone() === false) {
+            empty.each(function () {
                 /* Отмена отправки формы */
                 $(".ordercallsent").submit(function (event) {
                     event.preventDefault();
@@ -89,13 +89,14 @@ $(document).ready(function (e) {
                 $(this).next().show();
                 $(this).next().text("Это поле обязательное");
             });
-            if (validPhone() == false && $(".ordercallform .namefield input[name=phone]").val() != "") {
-                $(".ordercallform .namefield input[name=phone]").next().show();
-                $(".ordercallform .namefield input[name=phone]").next().text("Введен некорректный номер");
+            let validNumber = $(".ordercallform .namefield input[name=phone]");
+            if (validPhone() === false && validNumber.val() !== "") {
+                validNumber.next().show();
+                validNumber.next().text("Введен некорректный номер");
             }
         } else {
             $(".ordercallsent").submit(function () {
-                var str = $(this).serialize();
+                let str = $(this).serialize();
                 /* Отправка сообщения на ajax */
                 $.ajax({
                     type: "POST",
@@ -119,7 +120,8 @@ $(document).ready(function (e) {
     });
 
     /* Ползунок со временем */
-    $(".ordercallform .polzunok").slider({
+    let timeline = $(".ordercallform .polzunok");
+    timeline.slider({
         animate: "slow",
         range: true,
         min: 12,
@@ -127,27 +129,28 @@ $(document).ready(function (e) {
         max: 21,
         values: [14, 19],
         slide: function (event, ui) {
-            var one = ui.values[0];
-            var two = ui.values[1];
+            let one = ui.values[0];
+            let two = ui.values[1];
             $(".ordercallform input[name=timefrom]").val(ui.values[0]);
             $(".ordercallform input[name=timeto]").val(ui.values[1]);
         }
     });
 
-    $(".ordercallform input[name=timefrom]").val($(".ordercallform .polzunok").slider("values", 0));
-    $(".ordercallform input[name=timeto]").val($(".ordercallform .polzunok").slider("values", 1));
-    var timeprint = [12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
+    $(".ordercallform input[name=timefrom]").val(timeline.slider("values", 0));
+    $(".ordercallform input[name=timeto]").val(timeline.slider("values", 1));
+    let timeprint = [12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
 
-    if ($("div").is("#resulttime")) {
+    if (div.is("#resulttime")) {
         for (i = 0; i < timeprint.length; i++) {
             document.getElementById("resulttime").innerHTML += "<div>" + timeprint[i] + "</div>";
         }
     }
 
     /* Скрыть капчу (невидимую)*/
-    if ($("div").is(".ordercallform .wa-captcha .g-recaptcha")) {
-        if ($(".ordercallform .wa-captcha .g-recaptcha").attr("data-size") === "invisible") {
-            $(".ordercallform .wa-captcha .g-recaptcha").css({"height": "0px"});
+    let captcha = $(".ordercallform .wa-captcha .g-recaptcha");
+    if (div.is(".ordercallform .wa-captcha .g-recaptcha")) {
+        if (captcha.attr("data-size") === "invisible") {
+            captcha.css({"height": "0px"});
         }
     }
 });

@@ -258,7 +258,7 @@ font-face {
     content: '';
     position: absolute;
     border: 3px solid transparent;
-    border-bottom: 5px #FA3737;
+    border-bottom: 5px solid #FA3737;
     margin-top: -10px;
     margin-left: 103px;
 }
